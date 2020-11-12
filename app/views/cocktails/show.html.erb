@@ -1,0 +1,16 @@
+<div class="container">
+  <h1><%= @cocktail.name %></h1>
+  <%= link_to "Create the dose", new_cocktail_dose_path(@cocktail), class: "btn btn-info" %>
+</div>
+
+<div class="container">
+  <ul class="list-group">
+    <% @cocktail.doses.each do |dose| %>
+      <li class="list-group-item">
+        <%= dose.ingredient.name %> - Qty: <%= dose.description %> 
+        <%= link_to icon('far', 'trash-alt', class: 'strong'), dose, method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
