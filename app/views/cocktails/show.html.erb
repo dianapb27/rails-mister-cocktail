@@ -1,19 +1,29 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-6">
-      <h1 class="d-flex justify-content-between text-white mt-3 mb-3">
+    <div class="col-4">
+      <h1 class="d-flex justify-content-between text-white mt-3 mb-3 font-weight-bold">
         <%= @cocktail.name %>
-        <%= link_to icon('fas', 'plus', class: 'strong text-success'), new_cocktail_dose_path(@cocktail) %>
+        <%# link_to icon('fas', 'plus', class: 'strong text-success'), new_cocktail_dose_path(@cocktail) %>
       </h1>
-      <ul class="list-group">
+      <ul class="list-group list-group-flush">
         <% @cocktail.doses.each do |dose| %>
-          <li class="list-group-item">
+          <li class="list-group-item bg-transparent text-white">
             <%= dose.ingredient.name %> - <%= dose.description %> 
             <%= link_to icon('far', 'trash-alt', class: 'strong text-success'), dose, method: :delete, data: { confirm: "Are you sure?" } %>
           </li>
         <% end %>
       </ul>
     </div>
+
+    <div class="col-2 text-white">
+      <h2 class="mt-3 mb-3 pt-1 pb-1">Add a dose</h2>
+      <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+        <%= f.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+        <%= f.input :description %> 
+        <%= f.submit "Mix!", class: "btn btn-outline-success badge-pill text-center btn-block" %>
+      <% end %>
+    </div>
+
     <div class="col-6">
       <img src="<%= @cocktail.image_url %>" alt="<%= @cocktail.name %>" class="cocktail-img">
     </div>

@@ -3,7 +3,7 @@
   <h1 class="mt-5">Create a new dose</h1>
 
   <%= simple_form_for [ @cocktail, @dose ] do |f| %>
-    <%= f.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false %> 
+    <%= f.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
     <%= f.input :description %> 
     <%= f.submit "Mix!", class: "btn btn-outline-success badge-pill text-center" %>
   <% end %>
