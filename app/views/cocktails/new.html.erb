@@ -1,6 +1,8 @@
-<h1>Create a Cocktail</h1>
-
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "Create!" %>
-<% end %>
+<h1 class="text-white">Create a Cocktail</h1>
+<div class="container text-white">
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.input :image_url %>
+    <%= f.submit "Create!", class: "btn btn-outline-success btn-block" %>
+  <% end %>
+</div>

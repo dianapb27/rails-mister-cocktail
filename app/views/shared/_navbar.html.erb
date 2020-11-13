@@ -1,7 +1,7 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light position-sticky fixed-top">
   <%# <i class="fas fa-cocktail"></i> %>
-  <%= link_to "🍹Mister Cocktail", cocktails_path, class: "text-dark" %>
-  <%= link_to "Create a Cocktail", new_cocktail_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+  <h1><%= link_to icon("fas", "cocktail"), cocktails_path, class: "text-success strong" %></h1>
+  <%= link_to "Create a Cocktail", new_cocktail_path, class: "btn btn-outline-success my-2 my-sm-0 badge-pill" %>
 
   <%# <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

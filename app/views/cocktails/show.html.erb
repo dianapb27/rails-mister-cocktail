@@ -1,16 +1,22 @@
-<div class="container">
-  <h1><%= @cocktail.name %></h1>
-  <%= link_to "Create the dose", new_cocktail_dose_path(@cocktail), class: "btn btn-info" %>
-</div>
-
-<div class="container">
-  <ul class="list-group">
-    <% @cocktail.doses.each do |dose| %>
-      <li class="list-group-item">
-        <%= dose.ingredient.name %> - Qty: <%= dose.description %> 
-        <%= link_to icon('far', 'trash-alt', class: 'strong'), dose, method: :delete, data: { confirm: "Are you sure?" } %>
-      </li>
-    <% end %>
-  </ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <h1 class="d-flex justify-content-between text-white mt-3 mb-3">
+        <%= @cocktail.name %>
+        <%= link_to icon('fas', 'plus', class: 'strong text-success'), new_cocktail_dose_path(@cocktail) %>
+      </h1>
+      <ul class="list-group">
+        <% @cocktail.doses.each do |dose| %>
+          <li class="list-group-item">
+            <%= dose.ingredient.name %> - <%= dose.description %> 
+            <%= link_to icon('far', 'trash-alt', class: 'strong text-success'), dose, method: :delete, data: { confirm: "Are you sure?" } %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-6">
+      <img src="<%= @cocktail.image_url %>" alt="<%= @cocktail.name %>" class="cocktail-img">
+    </div>
+  </div>
 </div>
 
