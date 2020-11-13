@@ -7,7 +7,7 @@
       </h1>
       <ul class="list-group list-group-flush">
         <% @cocktail.doses.each do |dose| %>
-          <li class="list-group-item bg-transparent text-white">
+          <li class="list-group-item bg-transparent text-white h4">
             <%= dose.ingredient.name %> - <%= dose.description %> 
             <%= link_to icon('far', 'trash-alt', class: 'strong text-success'), dose, method: :delete, data: { confirm: "Are you sure?" } %>
           </li>
