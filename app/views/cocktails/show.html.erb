@@ -25,7 +25,12 @@
     </div>
 
     <div class="col-6">
-      Image Placeholder
+    
+      <% if @cocktail.photo.attached? %>
+        <%= cl_image_tag @cocktail.photo.key, class: "cocktail-img" %>
+      <% else %>
+        There is no image
+      <% end %>
     </div>
   </div>
 </div>
